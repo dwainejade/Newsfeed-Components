@@ -115,30 +115,46 @@ const data = [
 
 
 //create
-function articleMaker(title, date, paragraph) {
+function articleMaker(title, date, p1,p2,p3) {
   const article = document.createElement('div');
   const aTitle = document.createElement('h2');
   const aDate = document.createElement('h3')
-  const aParagraph = document.createElement('p');
+  const para1 = document.createElement('p');
+  const para2 = document.createElement('p');
+  const para3 = document.createElement('p');
   const aExpand = document.createElement('span');
 
   //append
   article.appendChild(aTitle);
-  article.appendChild(aParagraph);
+  article.appendChild(para1);
+  article.appendChild(para2);
+  article.appendChild(para3);
   article.appendChild(aExpand);
 
   //update
   aTitle.textContent = title;
   aDate.textContent = date;
-  aParagraph.textContent = paragraph;
+  para1.textContent = p1;
+  para2.textContent = p2;
+  para3.textContent = p3;
   aExpand.textContent = 'Read More';
 
   //style
   article.classList.add('article');
+  article.style.paddingBottom = '90px';
+  
   aTitle.classList.add('title');
-  aParagraph.classList.add('paragraph');
+  para1.classList.add('p1');
+  para2.classList.add('p2');
+  para3.classList.add('p3');
   aExpand.classList.add('expandButton');
-  aExpand.style.color = 'blue';
+  aExpand.style.color = 'white';
+  aExpand.style.backgroundColor = 'green';
+  aExpand.style.borderRadius = '8px';
+  aExpand.style.padding = '8px';
+  aExpand.style.margin = '2%';
+  aExpand.style.left = '80%';
+  
 
   //events
   aExpand.addEventListener('click', (e) => {
@@ -146,12 +162,23 @@ function articleMaker(title, date, paragraph) {
     article.classList.toggle('article-open');
   })
 
-  console.log(article)
   return article
 }
 
-const articles = document.querySelector('.articles')
+const articles = document.querySelector('.articles');
 
+const JS = {
+  title: 'Javascript VS Me',
+    date: 'May 10th, 2020',
+    firstParagraph: 'I\'m baby raw denim bicycle rights sustainable tumeric tacos hot chicken, normcore organic. Brooklyn kale chips four dollar toast portland typewriter cliche forage fingerstache farm-to-table 8-bit. Keytar keffiyeh hashtag raw denim. Yuccie bicycle rights try-hard hella hot chicken. Yuccie taiyaki post-ironic before they sold out iceland gastropub. Live-edge mixtape four dollar toast, jianbing viral irony put a bird on it offal meggings pabst. Subway tile viral echo park street art.',
+
+    secondParagraph: 'Meh next level gochujang whatever before they sold out fashion axe scenester venmo. Semiotics woke franzen pitchfork viral man braid shabby chic austin. Authentic hell of marfa 90\'s. Cold-pressed shabby chic taxidermy gentrify, mumblecore 8-bit sartorial pinterest bicycle rights skateboard microdosing.',
+
+    thirdParagraph: 'Crucifix man bun cray, scenester cloud bread everyday carry swag yuccie mixtape microdosing gluten-free pug vegan ethical. Bespoke etsy flannel pitchfork everyday carry freegan heirloom biodiesel. Selfies thundercats raclette woke photo booth chartreuse, la croix umami. Cray banh mi af messenger bag, cred poutine retro tote bag listicle vegan fashion axe cloud bread. Lo-fi seitan pitchfork keffiyeh. Af helvetica trust fund, retro sustainable meh pinterest YOLO'
+}
+ 
+
+data.unshift(JS);
 data.forEach((e) => {
   articles.appendChild(articleMaker(e.title, e.date, e.firstParagraph, e.secondParagraph, e.thirdParagraph));
   console.log(e)
