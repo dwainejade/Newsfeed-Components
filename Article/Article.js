@@ -176,10 +176,8 @@ const JS = {
 
     thirdParagraph: 'Crucifix man bun cray, scenester cloud bread everyday carry swag yuccie mixtape microdosing gluten-free pug vegan ethical. Bespoke etsy flannel pitchfork everyday carry freegan heirloom biodiesel. Selfies thundercats raclette woke photo booth chartreuse, la croix umami. Cray banh mi af messenger bag, cred poutine retro tote bag listicle vegan fashion axe cloud bread. Lo-fi seitan pitchfork keffiyeh. Af helvetica trust fund, retro sustainable meh pinterest YOLO'
 }
- 
 
 data.unshift(JS);
 data.forEach((e) => {
   articles.appendChild(articleMaker(e.title, e.date, e.firstParagraph, e.secondParagraph, e.thirdParagraph));
-  console.log(e)
 });
